@@ -1,6 +1,6 @@
 import numpy as np
 from functions import tanh, tanh_derivative, sigmoid, sigmoid_derivative, softmax
-from errors import kl_divergence, huber_loss, mean_squared_error, cross_entropy_loss, categorical_cross_entropy
+from loss import kl_divergence, huber_loss, mean_squared_error, cross_entropy_loss, categorical_cross_entropy
 from plot import precision_score, recall_score
 import matplotlib.pyplot as plt
 
@@ -108,7 +108,7 @@ class MLP:
     def train(self, X, y, epochs, print_loss=False):
         for epoch in range(1, epochs + 1):
             y_pred = self.forward(X)
-            loss = categorical_cross_entropy(y, y_pred)
+            loss = cross_entropy_loss(y, y_pred)
             self.loss_history.append(loss)
 
             y_pred_classes = np.argmax(y_pred, axis=1)

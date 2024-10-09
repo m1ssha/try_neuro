@@ -178,8 +178,8 @@ class DrawingApp:
         y_val_true = np.argmax(self.y_val, axis=1)
         accuracy = np.mean(y_val_pred == y_val_true)
 
-        messagebox.showinfo("Обучение завершено", f"Точность на валидационной выборке: {accuracy * 100:.2f}%")
-        self.result_label.config(text=f"Точность на валидации: {accuracy * 100:.2f}%")
+        messagebox.showinfo("Обучение завершено", f"Точность на выборке: {accuracy * 100:.2f}%")
+        self.result_label.config(text=f"Точность: {accuracy * 100:.2f}%")
         self.model.plot_metrics()
 
     def recognize(self):
